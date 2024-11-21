@@ -47,7 +47,7 @@ export function SidebarNavUserItem() {
     children: React.ReactNode;
     className?: string;
   }) {
-    return children || <Skeleton className={cn("rounded-sm", className)} />;
+    return children || <Skeleton className={cn("rounded-md", className)} />;
   }
 
   function UserAvatar() {
@@ -118,12 +118,12 @@ export function SidebarNavUserItem() {
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <Link href="/dashboard/account">
+            <a href="/dashboard/account">
               <DropdownMenuItem>
                 <BadgeCheck />
                 Account
               </DropdownMenuItem>
-            </Link>
+            </a>
             <DropdownMenuItem>
               <CreditCard />
               Billing

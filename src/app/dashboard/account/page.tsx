@@ -19,7 +19,7 @@ async function AccountPage() {
   }
   return (
     <div className="flex flex-col items-start max-w-[1024px] ml-0 mr-auto">
-      <section className="flex flex-col justify-start items-start gap-5">
+      <section className="flex flex-col justify-start items-start gap-5 mb-5">
         <Suspense fallback={<CustomSkeleton />}>
           <SettingAvatar />
         </Suspense>
