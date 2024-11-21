@@ -6,7 +6,6 @@ import {
   BookUser,
   ChartColumn,
   ChevronsUpDown,
-  FileWarning,
   Frame,
   GlobeLock,
   Plus,
@@ -280,7 +279,7 @@ export function AppSidebar() {
           <NavSelectTeams />
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarNavContent activeTeam={activeTeam} nav={nav} user={user} />
+      <SidebarNavContent activeTeam={activeTeam} nav={nav} />
       <SidebarFooter>
         <SidebarMenu>
           <SidebarNavUserItem />
