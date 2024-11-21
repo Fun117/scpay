@@ -8,23 +8,23 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'mtthwkpbwxbzwwwwfefl.supabase.co',
+        protocol: "https",
+        hostname: "mtthwkpbwxbzwwwwfefl.supabase.co",
       },
       {
-        protocol: 'https',
-        hostname: 'scratch.mit.edu',
+        protocol: "https",
+        hostname: "scratch.mit.edu",
       },
       {
-        protocol: 'https',
-        hostname: 'github.com',
+        protocol: "https",
+        hostname: "github.com",
       },
       {
-        protocol: 'https',
-        hostname: 'i.imgur.com',
+        protocol: "https",
+        hostname: "i.imgur.com",
       },
     ],
-  },  
+  },
 };
 
 export default withNextIntl(nextConfig);

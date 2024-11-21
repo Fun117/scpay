@@ -109,7 +109,7 @@ function Header() {
           className="sm:!hidden"
         />
       </NavbarContent>
-      <NavbarMenu className="overflow-y-auto">
+      <NavbarMenu className="w-full !h-[calc(100dvh-4rem)]">
         <NavbarMenuItem className="flex flex-col gap-2 mb-2">
           <ScPayUserButton
             yesLoginContentNull

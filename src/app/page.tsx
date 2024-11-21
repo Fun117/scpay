@@ -1,6 +1,6 @@
 "use server";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Footer from "@/components/nav/footer";
 import Header from "@/components/nav/header";
 import TopNewsContents from "@/components/ui/(scpay)/news/topnews";
@@ -21,7 +21,9 @@ export default async function Page() {
       <main className="w-full min-h-dvh h-full overflow-hidden">
         <div className="relative flex h-screen min-h-dvh w-full flex-col overflow-hidden bg-background">
           <HeroTopTitle />
-          <HeroTopImage />
+          <Suspense fallback={<></>}>
+            <HeroTopImage />
+          </Suspense>
           <HeroTopGradient />
         </div>
         <HeroTeamMembersContent />
