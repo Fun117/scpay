@@ -116,7 +116,7 @@ function HeroPricingContent() {
       priceType: "free",
       label: "Free",
       description: "初心者や試してみたい愛好家向け。",
-      contents: ["アカウントの連携"],
+      contents: ["アカウントの連携", "ダッシュボードアクセス"],
       popular: true,
       buttonText: "無料で続ける",
       buttonURL: "/signup",

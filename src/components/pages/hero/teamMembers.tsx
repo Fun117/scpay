@@ -36,7 +36,7 @@ function HeroTeamMembersContent() {
 
   return (
     <motion.div
-      className="container flex flex-col items-start max-w-[1024px] px-8 mx-auto"
+      className="container flex flex-col items-start max-w-[1024px] h-[700px] sm:!h-auto overflow-y-auto px-8 mx-auto"
       ref={ref}
       style={{
         filter: isInView ? "blur(0px)" : "blur(10px)",
