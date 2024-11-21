@@ -15,10 +15,7 @@ import {
 } from "@/components/ui/sidebar";
 import {
   ChevronRight,
-  Folder,
-  Forward,
   MoreHorizontal,
-  Trash2,
 } from "lucide-react";
 import React from "react";
 import { DashboardNavType, DashboardTeamsType } from "./app";
@@ -28,13 +25,6 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { SelectLanguageButton, SelectThemeButton } from "./change";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 export function SidebarNavContent({
   activeTeam,
