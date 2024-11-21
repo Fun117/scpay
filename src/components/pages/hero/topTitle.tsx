@@ -10,7 +10,14 @@ export function HeroTopTitle() {
     <div className="container mx-auto mt-[80px] flex max-w-[1024px] flex-col items-start px-8">
       <section className="z-20 flex flex-col items-start justify-center gap-[18px] sm:gap-6">
         <Link href="#pricing">
-          <button
+          <motion.button
+            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: "easeInOut",
+            }}
             className="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 gap-2 rounded-full [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover h-9 overflow-hidden border-1 border-default-100 bg-default-50 px-[18px] py-2 text-small font-normal leading-5 text-default-500"
             type="button"
           >
@@ -36,7 +43,7 @@ export function HeroTopTitle() {
                 d="M4 12h16m0 0l-6-6m6 6l-6 6"
               />
             </svg>
-          </button>
+          </motion.button>
         </Link>
         <div className="flex flex-col gap-6 w-auto">
           <motion.div
@@ -46,7 +53,7 @@ export function HeroTopTitle() {
             transition={{
               duration: 0.8,
               delay: 0.5,
-              ease: "linear",
+              ease: "easeInOut",
             }}
           >
             <div className="bg-clip-text text-transparent bg-gradient-to-r from-[#000000] to-[#00000066] dark:from-[#FFFFFF] dark:to-[#FFFFFF66]">
@@ -60,7 +67,7 @@ export function HeroTopTitle() {
             transition={{
               duration: 0.8,
               delay: 0.7,
-              ease: "linear",
+              ease: "easeInOut",
             }}
           >
             ScPayは、Scratchアカウントを当サービスと連携して、ゲームの進捗情報などのデータを同期します。開発者向けに認証サービスも提供します。
@@ -72,7 +79,7 @@ export function HeroTopTitle() {
             transition={{
               duration: 0.8,
               delay: 0.9,
-              ease: "linear",
+              ease: "easeInOut",
             }}
           >
             <Link href="/dashboard">

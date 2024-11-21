@@ -16,7 +16,7 @@ import { HeroHighlightContent } from "@/components/pages/hero/highlight";
 export default async function Page() {
   return (
     <>
-      <TopNewsContent />
+      {/* <TopNewsContent /> */}
       <Header />
       <main className="w-full min-h-dvh h-full overflow-hidden">
         <div className="relative flex h-screen min-h-dvh w-full flex-col overflow-hidden bg-background">

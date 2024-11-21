@@ -22,8 +22,6 @@ import { ScPayUserButton } from "../scpay/userButton";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  console.log(isMenuOpen);
-
   function Logo() {
     if (config.themeConfig.header?.logo?.type === "Vercel&Next.js") {
       return <LogoVercelNextjs />;
@@ -81,7 +79,7 @@ function Header() {
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
-      className={`${isMenuOpen && "fixed inset-0 !h-[var(--navbar-height)]"}`}
+      // className={`${isMenuOpen && "fixed inset-0 !h-[var(--navbar-height)]"}`}
     >
       <NavbarContent
         className="flex justify-start items-center gap-4 h-full sm:!mr-5"
