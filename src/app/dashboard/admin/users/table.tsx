@@ -52,23 +52,6 @@ const columns = [
   { name: "ADMIN", uid: "admin" },
 ];
 
-// invited_at: Date | null;
-// email_change: string | null;
-// last_sign_in_at: Date | null;
-// is_super_admin: boolean; // default false
-// admin: boolean; // default false
-// created_at: Date;
-// updated_at: Date | null;
-// email_change_confirm_status: boolean | null;
-// banned_until: Date | null;
-// deleted_at: Date | null;
-// scratch: string | null;
-// status: string | null; // default active
-// profile: Record<string, any> | null;
-// history: Record<string, any> | null;
-// connection: Record<string, any> | null;
-// achievements: Record<string, any> | null;
-
 const INITIAL_VISIBLE_COLUMNS = ["username", "email", "created_at", "status"];
 
 export default function UsersTable() {
@@ -164,7 +147,7 @@ export default function UsersTable() {
               size="sm"
               variant="flat"
             >
-              {cellValue ?? "unknown"}
+              {`${cellValue ?? "unknown"}`}
             </Chip>
           );
         case "admin":
@@ -414,7 +397,9 @@ export default function UsersTable() {
         {(item) => (
           <TableRow key={item.id}>
             {(columnKey) => (
-              <TableCell>{renderCell(item, columnKey)}</TableCell>
+              <TableCell>
+                {renderCell(item, columnKey) as React.ReactNode}
+              </TableCell>
             )}
           </TableRow>
         )}

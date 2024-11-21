@@ -152,11 +152,6 @@ const nav: DashboardNavType = {
       url: "/dashboard/admin/users",
       icon: Users,
     },
-    {
-      name: "Error Codes",
-      url: "/dashboard/admin/errorcode",
-      icon: FileWarning,
-    },
   ],
 };
 
