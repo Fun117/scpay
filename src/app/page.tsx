@@ -9,7 +9,7 @@ import HeroTopImage from "@/components/pages/hero/topImage";
 import HeroTopGradient from "@/components/pages/hero/topGradient";
 import HeroPricingContent from "@/components/pages/hero/pricing";
 import HeroTeamMembersContent from "@/components/pages/hero/teamMembers";
-import { TopNewsContent } from "@/components/nav/news";
+// import { TopNewsContent } from "@/components/nav/news";
 import { HeroAnimateBrands } from "@/components/pages/hero/animateBrands";
 import { HeroHighlightContent } from "@/components/pages/hero/highlight";
 
