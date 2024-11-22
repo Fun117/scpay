@@ -1,19 +1,40 @@
 "use client";
 
-import React from "react";
-import { motion } from "motion/react";
+import React, { useRef } from "react";
+import { motion, useInView } from "motion/react";
 
 function HeroTopGradient() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const variants = {
+    visible: {
+      opacity: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        delay: 0.2,
+        ease: "easeInOut",
+      },
+    },
+    hidden: {
+      opacity: 0,
+      filter: "blur(10px)",
+      transition: {
+        duration: 0.8,
+        delay: 0.2,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <div className="pointer-events-none absolute inset-0 top-[-25%] z-10 scale-150 select-none sm:scale-125">
       <motion.div
-        initial={{ opacity: 0, filter: "blur(10px)" }}
-        animate={{ opacity: 1, filter: "blur(0px)" }}
-        transition={{
-          duration: 0.8,
-          delay: 0.5,
-          ease: "linear",
-        }}
+        ref={ref}
+        variants={variants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
       >
         <img
           alt="Gradient background"

@@ -236,7 +236,7 @@ function SignUpPage() {
           <div className="flex md:!hidden justify-center items-center mb-10">
             <h1 className="font-bold text-2xl">ScPay</h1>
           </div>
-          <div className="flex flex-col justify-center items-center gap-3 w-fit">
+          <div className="flex flex-col justify-center items-center gap-3 w-auto">
             <h1 className="font-bold text-xl md:!text-2xl lg:!text-3xl text-center mb-5">
               新規アカウントを作成する
             </h1>
@@ -245,6 +245,7 @@ function SignUpPage() {
                 {...register("username")}
                 isRequired
                 variant="faded"
+                labelPlacement="outside"
                 placeholder="guest"
                 label="Username"
                 type="text"
@@ -257,6 +258,7 @@ function SignUpPage() {
                 {...register("email")}
                 isRequired
                 variant="faded"
+                labelPlacement="outside"
                 placeholder="guest@example.com"
                 label="Email"
                 type="email"
@@ -270,6 +272,7 @@ function SignUpPage() {
                 isRequired
                 label="Password"
                 variant="faded"
+                labelPlacement="outside"
                 placeholder="Enter your password"
                 type={isVisible ? "text" : "password"}
                 className="max-w-xs"
@@ -325,7 +328,7 @@ function SignUpPage() {
             </div>
             <Button
               type="submit"
-              className="bg-blue-600 text-white w-full max-w-52 md:!max-w-80 px-10 py-2 rounded-lg shadow-md shadow-blue-800 hover:opacity-50 active:scale-95 transition-all duration-300 ease-in-out"
+              className="bg-blue-600 text-white w-full md:!max-w-80 px-10 py-2 rounded-lg shadow-md shadow-blue-800 hover:opacity-50 active:scale-95 transition-all duration-300 ease-in-out"
               isLoading={formLoading}
             >
               Sign up

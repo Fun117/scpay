@@ -1,9 +1,10 @@
 "use client";
 
 import config from "../../../richtpl.config";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { TLink, TNextuiLink } from "@/components/ui/Tcomps";
 import { LogoVercelNextjs } from "@/components/ui/LogoVercelNextjs";
+import { motion, useInView } from "motion/react";
 
 import {
   Navbar,
@@ -18,9 +19,35 @@ import {
 } from "@nextui-org/react";
 import LanguageSelest from "../ui/LanguageSelest";
 import { ScPayUserButton } from "../scpay/userButton";
+import useViewportHeight from "@/hooks/useViewportHeight";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const ViewportHeight = useViewportHeight();
+  const [navCustomHeight, setNavCustomHeight] =
+    useState<number>(ViewportHeight);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+
+    // `isMenuOpen` が true の場合、高さを減少
+    if (isMenuOpen) {
+      interval = setInterval(() => {
+        setNavCustomHeight(
+          (prevHeight) => Math.max(prevHeight - 50, 0) // 最小値を ViewportHeight の半分に制限
+        );
+      }, 16); // 約60FPSで動作
+    } else {
+      // `isMenuOpen` が false の場合、高さを増加
+      interval = setInterval(() => {
+        setNavCustomHeight(
+          (prevHeight) => Math.min(prevHeight + 50, ViewportHeight) // 最大値を ViewportHeight に制限
+        );
+      }, 16);
+    }
+
+    return () => clearInterval(interval); // クリーンアップ
+  }, [isMenuOpen, ViewportHeight]);
 
   function Logo() {
     if (config.themeConfig.header?.logo?.type === "Vercel&Next.js") {
@@ -109,7 +136,10 @@ function Header() {
           className="sm:!hidden"
         />
       </NavbarContent>
-      <NavbarMenu className="w-full !h-[calc(100dvh-4rem)]">
+      <NavbarMenu
+        className="!h-[calc(100dvh-4rem)] transition-all duration-300 ease-in-out"
+        style={{ transform: `translateY(-${navCustomHeight}px)` }}
+      >
         <NavbarMenuItem className="flex flex-col gap-2 mb-2">
           <ScPayUserButton
             yesLoginContentNull

@@ -1,23 +1,28 @@
 "use client";
 
-import React from "react";
-import { motion } from "motion/react";
+import React, { useRef } from "react";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/react";
+import { motion, useInView } from "motion/react";
+import { variantsXto30Delay02, variantsXto30Delay03, variantsXto30Delay04, variantsYto30Delay02 } from "./hero";
 
 export function HeroTopTitle() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const ref2 = useRef(null);
+  const isInView2 = useInView(ref2, { once: true });
+  const ref3 = useRef(null);
+  const isInView3 = useInView(ref3, { once: true });
+
   return (
     <div className="container mx-auto mt-[80px] flex max-w-[1024px] flex-col items-start px-8">
       <section className="z-20 flex flex-col items-start justify-center gap-[18px] sm:gap-6">
         <Link href="#pricing">
           <motion.button
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{
-              duration: 0.8,
-              delay: 0.5,
-              ease: "easeInOut",
-            }}
+            ref={ref}
+            variants={variantsYto30Delay02}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
             className="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 gap-2 rounded-full [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover h-9 overflow-hidden border-1 border-default-100 bg-default-50 px-[18px] py-2 text-small font-normal leading-5 text-default-500"
             type="button"
           >
@@ -48,13 +53,10 @@ export function HeroTopTitle() {
         <div className="flex flex-col gap-6 w-auto">
           <motion.div
             className="text-start text-[clamp(40px,10vw,44px)] font-bold leading-[1.2] tracking-tighter sm:text-[64px]"
-            initial={{ opacity: 0, x: 30, filter: "blur(10px)" }}
-            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            transition={{
-              duration: 0.8,
-              delay: 0.5,
-              ease: "easeInOut",
-            }}
+            ref={ref2}
+            variants={variantsXto30Delay02}
+            initial="hidden"
+            animate={isInView2 ? "visible" : "hidden"}
           >
             <div className="bg-clip-text text-transparent bg-gradient-to-r from-[#000000] to-[#00000066] dark:from-[#FFFFFF] dark:to-[#FFFFFF66]">
               Scratchの体験を <br /> 拡張するサービスです。
@@ -62,25 +64,19 @@ export function HeroTopTitle() {
           </motion.div>
           <motion.div
             className="text-start font-normal leading-7 text-default-500 sm:w-[466px] sm:text-[18px]"
-            initial={{ opacity: 0, x: 30, filter: "blur(10px)" }}
-            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            transition={{
-              duration: 0.8,
-              delay: 0.7,
-              ease: "easeInOut",
-            }}
+            ref={ref2}
+            variants={variantsXto30Delay03}
+            initial="hidden"
+            animate={isInView2 ? "visible" : "hidden"}
           >
             ScPayは、Scratchアカウントを当サービスと連携して、ゲームの進捗情報などのデータを同期します。開発者向けに認証サービスも提供します。
           </motion.div>
           <motion.div
             className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6"
-            initial={{ opacity: 0, x: 30, filter: "blur(10px)" }}
-            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            transition={{
-              duration: 0.8,
-              delay: 0.9,
-              ease: "easeInOut",
-            }}
+            ref={ref3}
+            variants={variantsXto30Delay04}
+            initial="hidden"
+            animate={isInView3 ? "visible" : "hidden"}
           >
             <Link href="/dashboard">
               <Button radius="full" color="primary" className="w-fit px-10">

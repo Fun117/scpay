@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "motion/react";
 import { useTheme } from "next-themes";
+import { variantsYto30Delay05 } from "./hero";
 
 function HeroTopImage() {
   const theme = useTheme();
@@ -10,6 +11,32 @@ function HeroTopImage() {
   const [ImageContent, setImageContent] = useState<React.ReactNode | null>(
     null
   );
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const variants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        delay: 0.5,
+        ease: "easeInOut",
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 30,
+      filter: "blur(10px)",
+      transition: {
+        duration: 0.8,
+        delay: 0.5,
+        ease: "easeInOut",
+      },
+    },
+  };
 
   function ThemeContent(Qtheme: string) {
     if (Qtheme === "dark") {
@@ -46,13 +73,10 @@ function HeroTopImage() {
   return (
     <motion.div
       className="absolute top-[40%] w-full"
-      initial={{ opacity: 0, y: 100, filter: "blur(10px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={{
-        duration: 0.8,
-        delay: 0.2,
-        ease: "linear",
-      }}
+      ref={ref}
+      variants={variants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
     >
       <svg
         fill="none"

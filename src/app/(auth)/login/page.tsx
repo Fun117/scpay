@@ -41,14 +41,6 @@ function LoginPage() {
   const onSubmit = async (data: any) => {
     setFormLoading(true);
     setError(null)
-    // const response = await fetch("/api/auth/login", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({
-    //     email: data.email,
-    //     password: data.password,
-    //   }),
-    // });
 
     const response = await reqScPayAPI({
       url: "/api/auth/login",
@@ -92,7 +84,7 @@ function LoginPage() {
           <div className="flex md:!hidden justify-center items-center mb-10">
             <h1 className="font-bold text-2xl">ScPay</h1>
           </div>
-          <div className="flex flex-col justify-center items-center gap-3 w-fit">
+          <div className="flex flex-col justify-center items-center gap-3 w-auto">
             <h1 className="font-bold text-xl md:!text-2xl lg:!text-3xl text-center mb-5">
               アカウントにログインする
             </h1>
@@ -100,6 +92,7 @@ function LoginPage() {
               {...register("email")}
               isRequired
               variant="faded"
+              labelPlacement="outside"
               placeholder="guest@example.com"
               label="Email"
               type="email"
@@ -113,6 +106,7 @@ function LoginPage() {
               isRequired
               label="Password"
               variant="faded"
+              labelPlacement="outside"
               placeholder="Enter your password"
               type={isVisible ? "text" : "password"}
               className="max-w-xs"
@@ -137,7 +131,7 @@ function LoginPage() {
             {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
             <Button
               type="submit"
-              className="bg-blue-600 text-white w-full max-w-52 md:!max-w-80 px-10 py-2 rounded-lg shadow-md shadow-blue-800 hover:opacity-50 active:scale-95 transition-all duration-300 ease-in-out"
+              className="bg-blue-600 text-white w-full md:!max-w-80 px-10 py-2 rounded-lg shadow-md shadow-blue-800 hover:opacity-50 active:scale-95 transition-all duration-300 ease-in-out"
               isLoading={formLoading}
             >
               Log in
