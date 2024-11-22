@@ -1,10 +1,9 @@
 "use client";
 
 import config from "../../../richtpl.config";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TLink, TNextuiLink } from "@/components/ui/Tcomps";
 import { LogoVercelNextjs } from "@/components/ui/LogoVercelNextjs";
-import { motion, useInView } from "motion/react";
 
 import {
   Navbar,

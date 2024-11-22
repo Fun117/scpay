@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { useTheme } from "next-themes";
-import { variantsYto30Delay05 } from "./hero";
 
 function HeroTopImage() {
   const theme = useTheme();
