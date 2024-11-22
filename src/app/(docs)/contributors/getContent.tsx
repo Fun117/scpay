@@ -5,7 +5,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-function GetMarkdownContent() {
+export default function DocsContributors() {
   const [markdownContent, setMarkdownContent] = useState<string>("");
 
   useEffect(() => {
@@ -40,5 +40,3 @@ function GetMarkdownContent() {
     </ReactMarkdown>
   );
 }
-
-export default GetMarkdownContent;

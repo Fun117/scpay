@@ -2,12 +2,14 @@
 
 import * as React from "react";
 import {
+  BookMarked,
   BookOpen,
   BookUser,
   ChartColumn,
   ChevronsUpDown,
   Frame,
   GlobeLock,
+  Notebook,
   Plus,
   Settings2,
   Shield,
@@ -126,12 +128,22 @@ const nav: DashboardNavType = {
   secondary: [
     {
       title: "Contributors",
-      url: "/dashboard/contributors",
+      url: "/contributors",
+      icon: Notebook,
+    },
+    {
+      title: "Community Guidelines",
+      url: "/community_guidelines",
       icon: BookUser,
     },
     {
+      title: "Terms of Use",
+      url: "/terms_of_use",
+      icon: BookMarked,
+    },
+    {
       title: "Privacy Policy",
-      url: "/dashboard/privacy_policy",
+      url: "/privacy_policy",
       icon: GlobeLock,
     },
   ],

@@ -22,8 +22,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LoaderRound } from "@/components/ui/loading";
 import { useScPayUser } from "@/hooks/useScPayUser";
 import { setCookie } from "cookies-next/client";
-import PrivacyPolicyContent from "@/app/dashboard/(root)/privacy_policy/getContent";
 import { reqScPayAPI } from "@/utils/supabase/scpay/req";
+import PrivacyPolicyContent from "@/app/(docs)/privacy_policy/getContent";
+import DocsTermsOfUseContent from "@/app/(docs)/terms_of_use/getContent";
 
 function SignUpPage() {
   const { user, loading } = useScPayUser();
@@ -73,7 +74,7 @@ function SignUpPage() {
 
   const onSubmit = async (data: any) => {
     setFormLoading(true);
-    setError(null)
+    setError(null);
     // 利用規約とプライバシーポリシーに同意していない場合はサインアップを中止
     if (!ok_termsOfUse || !ok_privacyPolicy) {
       setError("利用規約とプライバシーポリシーに同意する必要があります");
@@ -142,6 +143,7 @@ function SignUpPage() {
           isKeyboardDismissDisabled={true}
           isOpen={isOpen_termsOfUse}
           onOpenChange={onOpenChange_termsOfUse}
+          scrollBehavior="inside"
         >
           <ModalContent>
             {(onClose) => (
@@ -150,7 +152,7 @@ function SignUpPage() {
                   利用規約
                 </ModalHeader>
                 <ModalBody>
-                  <p>{/**省略 */}</p>
+                  <DocsTermsOfUseContent />
                 </ModalBody>
                 <ModalFooter>
                   <Button

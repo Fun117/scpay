@@ -5,12 +5,12 @@ import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-function GetMarkdownContent() {
+export default function DocsCommunityGuidelinesContent() {
   const [markdownContent, setMarkdownContent] = useState<string>("");
 
   useEffect(() => {
     // GitHub APIのエンドポイントからMarkdownを取得
-    fetch("/privacy_policy.md")
+    fetch("/community_guidelines.md")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Markdownファイルの取得に失敗しました");
@@ -40,5 +40,3 @@ function GetMarkdownContent() {
     </ReactMarkdown>
   );
 }
-
-export default GetMarkdownContent;
